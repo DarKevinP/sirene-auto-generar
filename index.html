@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="style.css" rel="stylesheet" />
+    <title>Generar Texto Evento Sirene Show</title>
+  </head>
+  <body>
+    <h1>Generador de texto para eventos</h1>
+
+    <button id="show-infantil-btn">Show Infantil</button>
+    <button id="baby-shower-btn">Baby Shower</button>
+
+    <!-- *SHOW INFANTIL -->
+    <div id="show-infantil-section" style="display: none">
+      <h2>Show Infantil</h2>
+
+      <button id="show-basico-btn">Show Básico</button>
+      <button id="show-bailarina-btn">Show Bailarina</button>
+      <button id="show-grande-btn">Show Grande</button>
+
+      <label for="cantidad-animadores-infantil">Cantidad de animadores:</label>
+      <select id="cantidad-animadores-infantil" name="cantidad-animadores-infantil">
+        <option>Seleccione la cantidad</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+
+      <label for="tipo-show-infantil">Tipo de lugar:</label>
+      <select id="tipo-show-infantil" name="tipo-show-infantil">
+        <!-- <option>Seleccione tipo</option> -->
+        <option value="Casa - Abierto">Casa - Abierto</option>
+        <option value="Casa - Cerrado">Casa - Cerrado</option>
+        <option value="Local - Abierto">Local - Abierto</option>
+        <option value="Local - Cerrado">Local - Cerrado</option>
+      </select>
+
+      <label for="direccioninfantil">Direccion:</label>
+      <input type="text" id="direccioninfantil" name="direccioninfantil" />
+
+      <label for="fechainfantil">Fecha:</label>
+      <input type="date" id="fechainfantil" name="fechainfantil" />
+      <label for="horallegadainfantil">Hora de llegada a Sirene:</label>
+      <input type="time" id="horallegadainfantil" name="horallegadainfantil" />
+      <label for="horasalidainfantil">Hora de salida de Sirene:</label>
+      <input type="time" id="horasalidainfantil" name="horasalidainfantil" />
+      <label for="horallegadashowinfantil">Hora de llegada al show:</label>
+      <input type="time" id="horallegadashowinfantil" name="horallegadashowinfantil" />
+      <label for="horacomienzoshowinfantil">Hora de comienzo del show:</label>
+      <input
+        type="time"
+        id="horacomienzoshowinfantil"
+        name="horacomienzoshowinfantil"
+      />
+
+      <label for="tipoinfantil">Tipo de animadora/es:</label>
+      <input type="text" id="tipoinfantil" name="tipoinfantil" />
+      
+      <div id="show-grande-tipo"></div>
+      <div id="animadores-container-infantil"></div>
+      <div id="bailarinas-container-infantil"></div>
+      <div id="munecos-container-infantil"></div>
+
+      <label for="nombredj-infantil">Nombre del DJ:</label>
+      <input type="text" id="nombredj-infantil" name="nombredj-infantil" />
+
+
+      <label for="nombre-cumpleanero">Nombre y edad del cumpleañer@:</label>
+      <input type="text" id="nombre-cumpleanero" name="nombre-cumpleanero" />
+
+      <label for="edadesinfantil">Edades:</label>
+      <input type="text" id="edadesinfantil" name="nombre-cumpleanero" />
+
+      <label for="tematica">Tematica:</label>
+      <input type="text" id="tematica" name="tematica" />
+
+      <label for="papainfantil">Nombre del Papá:</label>
+      <input type="text" id="papainfantil" name="papainfantil" />
+      <label for="mamainfantil">Nombre de la Mamá:</label>
+      <input type="text" id="mamainfantil" name="mamainfantil" />
+
+      <label for="nombrecontactoinfantil1">Nombre Contacto 1:</label>
+      <input type="text" id="nombrecontactoinfantil1" name="nombrecontactoinfantil1" />
+      <label for="celularcontactoinfantil1">Celular Contacto 1:</label>
+      <input
+        type="text"
+        id="celularcontactoinfantil1"
+        name="celularcontactoinfantil1"
+      />
+
+      <label for="nombrecontactoinfantil2">Nombre Contacto 2:</label>
+      <input type="text" id="nombrecontactoinfantil2" name="nombrecontactoinfantil2" />
+      <label for="celularcontactoinfantil2">Celular Contacto 2:</label>
+      <input
+        type="text"
+        id="celularcontactoinfantil2"
+        name="celularcontactoinfantil2"
+      />
+
+      <label for="saldoinfantil">Saldo:</label>
+      <input type="text" id="saldoinfantil" name="saldoinfantil" />
+      <label for="movilidadesinfantil">¿Movilidades?</label>
+      <select id="movilidadesinfantil" name="movilidadesinfantil">
+        <!-- <option>Seleccione</option> -->
+        <option value="1">Si</option>
+        <option value="2">No</option>
+      </select>
+
+      <label for="comentarioinfantil">Comentario:</label>
+      <input type="text" id="comentarioinfantil" name="comentarioinfantil" />
+
+
+      <button id="generar-show-infantil-btn">Generar texto</button>
+    </div>
+
+    <!-- *BABY SHOWER -->
+    <div id="baby-shower-section" style="display: none">
+      <h2>Baby Shower</h2>
+
+      <label for="cantidad-animadores-baby">Cantidad de animadores:</label>
+      <select id="cantidad-animadores-baby" name="cantidad-animadores-baby">
+        <option>Seleccione la cantidad</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+
+      <label for="tipo-show-baby">Tipo de lugar:</label>
+      <select id="tipo-show-baby" name="tipo-show-baby">
+        <!-- <option>Seleccione tipo</option> -->
+        <option value="Casa - Abierto">Casa - Abierto</option>
+        <option value="Casa - Cerrado">Casa - Cerrado</option>
+        <option value="Local - Abierto">Local - Abierto</option>
+        <option value="Local - Cerrado">Local - Cerrado</option>
+      </select>
+
+      <label for="direccionbaby">Direccion:</label>
+      <input type="text" id="direccionbaby" name="direccionbaby" />
+
+      <label for="fechababy">Fecha:</label>
+      <input type="date" id="fechababy" name="fechababy" />
+      <label for="horallegadababy">Hora de llegada a Sirene:</label>
+      <input type="time" id="horallegadababy" name="horallegadababy" />
+      <label for="horasalidababy">Hora de salida de Sirene:</label>
+      <input type="time" id="horasalidababy" name="horasalidababy" />
+      <label for="horallegadashowbaby">Hora de llegada al show:</label>
+      <input type="time" id="horallegadashowbaby" name="horallegadashowbaby" />
+      <label for="horacomienzoshowbaby">Hora de comienzo del show:</label>
+      <input
+        type="time"
+        id="horacomienzoshowbaby"
+        name="horacomienzoshowbaby"
+      />
+
+      <div id="animadores-container-baby"></div>
+      <label for="tipobaby">Tipo de animadora/es:</label>
+      <input type="text" id="tipobaby" name="tipobaby" />
+      <label for="nombredj-baby">Nombre del DJ:</label>
+      <input type="text" id="nombredj-baby" name="nombredj-baby" />
+
+      <label for="papababy">Nombre del Papá:</label>
+      <input type="text" id="papababy" name="papababy" />
+      <label for="mamababy">Nombre de la Mamá:</label>
+      <input type="text" id="mamababy" name="mamababy" />
+
+      <label for="nombrecontactobaby1">Nombre Contacto 1:</label>
+      <input type="text" id="nombrecontactobaby1" name="nombrecontactobaby1" />
+      <label for="celularcontactobaby1">Celular Contacto 1:</label>
+      <input
+        type="text"
+        id="celularcontactobaby1"
+        name="celularcontactobaby1"
+      />
+
+      <label for="nombrecontactobaby2">Nombre Contacto 2:</label>
+      <input type="text" id="nombrecontactobaby2" name="nombrecontactobaby2" />
+      <label for="celularcontactobaby2">Celular Contacto 2:</label>
+      <input
+        type="text"
+        id="celularcontactobaby2"
+        name="celularcontactobaby2"
+      />
+
+      <label for="saldobaby">Saldo:</label>
+      <input type="text" id="saldobaby" name="saldobaby" />
+      <label for="movilidadesbaby">¿Movilidades?</label>
+      <select id="movilidadesbaby" name="movilidadesbaby">
+        <!-- <option>Seleccione</option> -->
+        <option value="1">Si</option>
+        <option value="2">No</option>
+      </select>
+
+      <label for="comentariobaby">Comentario:</label>
+      <input type="text" id="comentariobaby" name="comentariobaby" />
+
+      <button id="generar-baby-shower-btn">Generar texto</button>
+    </div>
+
+    <label for="texto-generado">Texto generado:</label>
+    <textarea id="texto-generado" name="texto-generado" readonly></textarea>
+    <script src="/app.js"></script>
+  </body>
+</html>
