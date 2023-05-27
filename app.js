@@ -1,10 +1,7 @@
-
 // Obtener elementos del DOM
 const showInfantilBtn = document.getElementById("show-infantil-btn");
 const babyShowerBtn = document.getElementById("baby-shower-btn");
-const showInfantilSection = document.getElementById(
-  "show-infantil-section"
-);
+const showInfantilSection = document.getElementById("show-infantil-section");
 const babyShowerSection = document.getElementById("baby-shower-section");
 const showBasicoBtn = document.getElementById("show-basico-btn");
 const showBailarinaBtn = document.getElementById("show-bailarina-btn");
@@ -25,9 +22,7 @@ const animadoresContainerBaby = document.getElementById(
 const generarShowInfantilBtn = document.getElementById(
   "generar-show-infantil-btn"
 );
-const generarBabyShowerBtn = document.getElementById(
-  "generar-baby-shower-btn"
-);
+const generarBabyShowerBtn = document.getElementById("generar-baby-shower-btn");
 const textoGeneradoTextarea = document.getElementById("texto-generado");
 
 // Mostrar sección correspondiente al botón seleccionado
@@ -92,20 +87,13 @@ cantidadAnimadoresInfantilSelect.addEventListener("change", function () {
   }
 });
 
-
 //!generar texto
 // Generar texto correspondiente al show infantil seleccionado
 generarShowInfantilBtn.addEventListener("click", function (event) {
   event.preventDefault();
 
-  // const direccioninfantil = document.getElementById("direccioninfantil").value;
-  // const nombreCumpleanero =
-  //   document.getElementById("nombre-cumpleanero").value;
+  //!FALTA GENERAR EL BOTON PARA SHOW INFANTILES
 
-  // let textoGenerado = `-Show Infantil-\n`+`Dirección: ${direccioninfantil}\n`;
-  // textoGenerado += `Nombre cumpleañer@: ${nombreCumpleanero}\n`;
-
-  // textoGeneradoTextarea.value = textoGenerado;
 });
 
 // Generar texto correspondiente al baby shower seleccionado
@@ -114,30 +102,45 @@ generarBabyShowerBtn.addEventListener("click", function (event) {
 
   const cantidadAnimadores = parseInt(cantidadAnimadoresBabySelect.value);
 
-  let textoGenerado = `-Baby Shower-\n`;//+`Cantidad de animadores: ${cantidadAnimadores}\n`;
+  let textoGenerado = `-Baby Shower-\n`; //+`Cantidad de animadores: ${cantidadAnimadores}\n`;
 
   const tipoShowBaby = document.getElementById("tipo-show-baby").value;
   const direccionBaby = document.getElementById("direccionbaby").value;
   const fechaBaby = document.getElementById("fechababy").value;
   const horaLlegadaBaby = document.getElementById("horallegadababy").value;
   const horaSalidaBaby = document.getElementById("horasalidababy").value;
-  const horaLlegadaShowBaby = document.getElementById("horallegadashowbaby").value;
-  const horaComienzoShowBaby = document.getElementById("horacomienzoshowbaby").value;
+  const horaLlegadaShowBaby = document.getElementById(
+    "horallegadashowbaby"
+  ).value;
+  const horaComienzoShowBaby = document.getElementById(
+    "horacomienzoshowbaby"
+  ).value;
   const tipoAnimadoraBaby = document.getElementById("tipobaby").value;
   const nombreDjBaby = document.getElementById("nombredj-baby").value;
   const papaBaby = document.getElementById("papababy").value;
   const mamaBaby = document.getElementById("mamababy").value;
-  const nombreContacto1Baby = document.getElementById("nombrecontactobaby1").value;
-  const celularContacto1Baby = document.getElementById("celularcontactobaby1").value;
-  const nombreContacto2Baby = document.getElementById("nombrecontactobaby2").value;
-  const celularContacto2Baby = document.getElementById("celularcontactobaby2").value;
+  const nombreContacto1Baby = document.getElementById(
+    "nombrecontactobaby1"
+  ).value;
+  const celularContacto1Baby = document.getElementById(
+    "celularcontactobaby1"
+  ).value;
+  const nombreContacto2Baby = document.getElementById(
+    "nombrecontactobaby2"
+  ).value;
+  const celularContacto2Baby = document.getElementById(
+    "celularcontactobaby2"
+  ).value;
   const saldoBaby = document.getElementById("saldobaby").value;
   const movilidadesBaby = document.getElementById("movilidadesbaby").value;
   const comentarioBaby = document.getElementById("comentariobaby").value;
 
   // Obtener los nombres de los animadores
-  const animadoresContainerBaby = document.getElementById("animadores-container-baby");
-  const animadoresInputs = animadoresContainerBaby.getElementsByTagName("input");
+  const animadoresContainerBaby = document.getElementById(
+    "animadores-container-baby"
+  );
+  const animadoresInputs =
+    animadoresContainerBaby.getElementsByTagName("input");
   let nombresAnimadores = "";
   for (let i = 0; i < animadoresInputs.length; i++) {
     const nombreAnimador = animadoresInputs[i].value;
@@ -159,13 +162,17 @@ generarBabyShowerBtn.addEventListener("click", function (event) {
   textoGenerado += `Nombre DJ: ${nombreDjBaby}\n`;
   textoGenerado += `Papá: ${papaBaby}\n`;
   textoGenerado += `Mamá: ${mamaBaby}\n`;
-  textoGenerado += `Nombre y Celular Contacto (1): ${nombreContacto1Baby}`+` || ${celularContacto1Baby}\n`;
+  textoGenerado +=
+    `Nombre y Celular Contacto (1): ${nombreContacto1Baby}` +
+    ` || ${celularContacto1Baby}\n`;
   // textoGenerado += `Celular Contacto 1: ${celularContacto1Baby}\n`;
-  textoGenerado += `Nombre y Celular Contacto (2): ${nombreContacto2Baby}`+` || ${celularContacto2Baby}\n`;
+  textoGenerado +=
+    `Nombre y Celular Contacto (2): ${nombreContacto2Baby}` +
+    ` || ${celularContacto2Baby}\n`;
   // textoGenerado += `Celular Contacto 2: ${celularContacto2Baby}\n`;
-  if(movilidadesBaby == 1){
+  if (movilidadesBaby == 1) {
     textoGenerado += `Saldo: ${saldoBaby} + movilidades \n`;
-  }else{
+  } else {
     textoGenerado += `Saldo: ${saldoBaby}, movilidades ya pagadas\n`;
   }
   // textoGenerado += `Saldo: ${saldoBaby}\n`;
@@ -175,27 +182,26 @@ generarBabyShowerBtn.addEventListener("click", function (event) {
   textoGeneradoTextarea.value = textoGenerado;
 });
 
-  textoGeneradoTextarea.addEventListener("click", function () {
-    // Copiar al portapapeles
-    navigator.clipboard
-      .writeText(textoGeneradoTextarea.value)
-      .then(function () {
-        // Mostrar mensaje de copiado
-        const mensajeCopiado = document.createElement("p");
-        mensajeCopiado.textContent = "Copiado al portapapeles";
-        mensajeCopiado.style.color = "green";
-        document.body.appendChild(mensajeCopiado);
+textoGeneradoTextarea.addEventListener("click", function () {
+  // Copiar al portapapeles
+  navigator.clipboard
+    .writeText(textoGeneradoTextarea.value)
+    .then(function () {
+      // Mostrar mensaje de copiado
+      const mensajeCopiado = document.createElement("p");
+      mensajeCopiado.textContent = "Copiado al portapapeles";
+      mensajeCopiado.style.color = "green";
+      document.body.appendChild(mensajeCopiado);
 
-        // Eliminar mensaje después de 5 segundos
-        setTimeout(function () {
-          mensajeCopiado.remove();
-        }, 5000);
-      })
-      .catch(function (error) {
-        console.error("Error al copiar al portapapeles:", error);
-      });
-  });
-
+      // Eliminar mensaje después de 5 segundos
+      setTimeout(function () {
+        mensajeCopiado.remove();
+      }, 5000);
+    })
+    .catch(function (error) {
+      console.error("Error al copiar al portapapeles:", error);
+    });
+});
 
 // !para show infantil
 // Obtén referencias a los elementos relevantes
@@ -208,6 +214,10 @@ showBasicoBtn.addEventListener("click", function () {
   document.getElementById("animadores-container-infantil").innerHTML = "";
   document.getElementById("animadores-container-baby").innerHTML = "";
   document.getElementById("munecos-container-infantil").innerHTML = "";
+  document.getElementById("munecos-container-infantil-select").innerHTML = "";
+  document.getElementById("bailarinas-container-infantil-select").innerHTML =
+    "";
+  document.getElementById("bailarinas-container-infantil").innerHTML = "";
   document.getElementById("show-grande-tipo").innerHTML = "";
 });
 
@@ -219,10 +229,13 @@ showBailarinaBtn.addEventListener("click", function () {
   document.getElementById("animadores-container-infantil").innerHTML = "";
   document.getElementById("animadores-container-baby").innerHTML = "";
   document.getElementById("munecos-container-infantil").innerHTML = "";
+  document.getElementById("bailarinas-container-infantil").innerHTML = "";
   document.getElementById("show-grande-tipo").innerHTML = "";
 
   // Eliminar los elementos <label> e <input> existentes en el contenedor
-  const elementosAnteriores = document.querySelectorAll("#bailarinas-container-infantil label, #bailarinas-container-infantil input");
+  const elementosAnteriores = document.querySelectorAll(
+    "#bailarinas-container-infantil label, #bailarinas-container-infantil input"
+  );
   elementosAnteriores.forEach((elemento) => {
     elemento.remove();
   });
@@ -234,10 +247,12 @@ showBailarinaBtn.addEventListener("click", function () {
     bailarinaSelect.id = "bailarina-select";
     // Agregar opción por defecto al <select>
     const defaultOption = document.createElement("option");
-    defaultOption.textContent = "Escoja cantidad de bailarinas";
+    defaultOption.textContent = "Escoja la cantidad de bailarinas";
     bailarinaSelect.appendChild(defaultOption);
     // Agregar el <select> al contenedor de bailarinas
-    document.getElementById("bailarinas-container-infantil").appendChild(bailarinaSelect);
+    document
+      .getElementById("bailarinas-container-infantil")
+      .appendChild(bailarinaSelect);
   }
 
   // Agregar opciones al <select>
@@ -252,7 +267,9 @@ showBailarinaBtn.addEventListener("click", function () {
   bailarinaSelect.addEventListener("change", function () {
     const cantidadBailarinas = parseInt(bailarinaSelect.value);
     // Eliminar los elementos <label> e <input> existentes en el contenedor
-    const elementosAnteriores = document.querySelectorAll("#bailarinas-container-infantil label, #bailarinas-container-infantil input");
+    const elementosAnteriores = document.querySelectorAll(
+      "#bailarinas-container-infantil label, #bailarinas-container-infantil input"
+    );
     elementosAnteriores.forEach((elemento) => {
       elemento.remove();
     });
@@ -266,12 +283,15 @@ showBailarinaBtn.addEventListener("click", function () {
       input.id = `nombre-bailarina-${i}`;
       input.name = `nombre-bailarina-${i}`;
 
-      document.getElementById("bailarinas-container-infantil").appendChild(label);
-      document.getElementById("bailarinas-container-infantil").appendChild(input);
+      document
+        .getElementById("bailarinas-container-infantil")
+        .appendChild(label);
+      document
+        .getElementById("bailarinas-container-infantil")
+        .appendChild(input);
     }
   });
 });
-
 
 //*grande show
 showGrandeBtn.addEventListener("click", function () {
@@ -281,6 +301,7 @@ showGrandeBtn.addEventListener("click", function () {
   document.getElementById("animadores-container-infantil").innerHTML = "";
   document.getElementById("animadores-container-baby").innerHTML = "";
   document.getElementById("munecos-container-infantil").innerHTML = "";
+  document.getElementById("bailarinas-container-infantil").innerHTML = "";
   document.getElementById("show-grande-tipo").innerHTML = "";
 
   // Crear el elemento <select> para el tipo de show
@@ -288,50 +309,51 @@ showGrandeBtn.addEventListener("click", function () {
   tipoShowSelect.id = "tipo-show-select";
 
   // Agregar opciones al <select> para el tipo de show
-  const options = ["Show de magia", "Show de magia y burbujas", "Show de magia, burbujas y cientifico", "Show de cientifico"];
+  const options = [
+    "Show de magia",
+    "Show de magia y burbujas",
+    "Show de magia, burbujas y cientifico",
+    "Show de cientifico",
+  ];
   for (let i = 0; i < options.length; i++) {
     const option = document.createElement("option");
     option.value = options[i];
     option.textContent = options[i];
     tipoShowSelect.appendChild(option);
   }
+  // Crear el elemento <select> si no existe
+  let bailarinaSelect = document.querySelector("#bailarina-select");
+  if (!bailarinaSelect) {
+    bailarinaSelect = document.createElement("select");
+    bailarinaSelect.id = "bailarina-select";
+    // Agregar opción por defecto al <select>
+    const defaultOption = document.createElement("option");
+    defaultOption.textContent = "Escoja la cantidad de bailarinas";
+    bailarinaSelect.appendChild(defaultOption);
+    // Agregar el <select> al contenedor de bailarinas
+    document
+      .getElementById("bailarinas-container-infantil")
+      .appendChild(bailarinaSelect);
+  }
 
-  // Crear el elemento <select> para la cantidad de bailarinas
-  const bailarinaSelect = document.createElement("select");
-  bailarinaSelect.id = "bailarina-select";
-
-  // Agregar opciones al <select> para la cantidad de bailarinas
+  // Agregar opciones al <select>
   for (let i = 1; i <= 5; i++) {
     const option = document.createElement("option");
     option.value = i;
-    option.textContent = `Bailarina ${i}`;
+    option.textContent = `${i} bailarina/s seleccionada/s`;
     bailarinaSelect.appendChild(option);
   }
 
-  // Crear el elemento <select> para la cantidad de muñecos
-  const munecoSelect = document.createElement("select");
-  munecoSelect.id = "muneco-select";
-
-  // Agregar opciones al <select> para la cantidad de muñecos
-  for (let i = 1; i <= 5; i++) {
-    const option = document.createElement("option");
-    option.value = i;
-    option.textContent = `Muñeco ${i}`;
-    munecoSelect.appendChild(option);
-  }
-
-  // Agregar los <select> al contenedor de bailarinas
-  document.getElementById("bailarinas-container-infantil").appendChild(tipoShowSelect);
-  document.getElementById("bailarinas-container-infantil").appendChild(bailarinaSelect);
-
-  // Agregar los <select> al contenedor de muñecos
-  document.getElementById("munecos-container-infantil").appendChild(tipoShowSelect.cloneNode(true));
-  document.getElementById("munecos-container-infantil").appendChild(munecoSelect);
-
-  // Agregar event listener al <select> de la cantidad de bailarinas
+  // Agregar event listener al <select>
   bailarinaSelect.addEventListener("change", function () {
     const cantidadBailarinas = parseInt(bailarinaSelect.value);
-    document.getElementById("bailarinas-container-infantil").innerHTML = ""; // Limpiar el contenedor antes de agregar los nuevos elementos
+    // Eliminar los elementos <label> e <input> existentes en el contenedor
+    const elementosAnteriores = document.querySelectorAll(
+      "#bailarinas-container-infantil label, #bailarinas-container-infantil input"
+    );
+    elementosAnteriores.forEach((elemento) => {
+      elemento.remove();
+    });
 
     // Crear los <input> para los nombres de las bailarinas
     for (let i = 1; i <= cantidadBailarinas; i++) {
@@ -342,20 +364,64 @@ showGrandeBtn.addEventListener("click", function () {
       input.id = `nombre-bailarina-${i}`;
       input.name = `nombre-bailarina-${i}`;
 
-      document.getElementById("bailarinas-container-infantil").appendChild(label);
-      document.getElementById("bailarinas-container-infantil").appendChild(input);
+      document
+        .getElementById("bailarinas-container-infantil")
+        .appendChild(label);
+      document
+        .getElementById("bailarinas-container-infantil")
+        .appendChild(input);
     }
   });
+  //!MUÑECOOOOO
+  let munecoSelect = document.getElementById("muneco-select");
+  if (!munecoSelect) {
+    munecoSelect = document.createElement("select");
+    munecoSelect.id = "muneco-select";
+    // Agregar opción por defecto al <select>
+    const defaultOption = document.createElement("option");
+    defaultOption.textContent = "Escoja la cantidad de muñecos";
+    defaultOption.disabled = false;
+    defaultOption.selected = true;
+    munecoSelect.appendChild(defaultOption);
+    // Agregar el <select> al contenedor de muñecos
+    document
+      .getElementById("munecos-container-infantil")
+      .appendChild(munecoSelect);
+  } else {
+    // Eliminar las opciones existentes en el <select>
+    munecoSelect.innerHTML = "";
+    // Agregar opción por defecto al <select> nuevamente
+    const defaultOption = document.createElement("option");
+    defaultOption.textContent = "Escoja la cantidad de muñecos";
+    defaultOption.disabled = true;
+    defaultOption.selected = true;
+    munecoSelect.appendChild(defaultOption);
+  }
 
-  // Agregar event listener al <select> de la cantidad de muñecos
+  // Agregar opciones al <select> para la cantidad de muñecos
+  for (let i = 1; i <= 5; i++) {
+    const option = document.createElement("option");
+    option.value = i;
+    option.textContent = `${i} muñeco/s seleccionado/s`;
+    munecoSelect.appendChild(option);
+  }
+
+  // Agregar event listener al <select>
   munecoSelect.addEventListener("change", function () {
     const cantidadMunecos = parseInt(munecoSelect.value);
-    document.getElementById("munecos-container-infantil").innerHTML = ""; // Limpiar el contenedor antes de agregar los nuevos elementos
+
+    // Eliminar los elementos <label> e <input> existentes en el contenedor
+    const elementosAnteriores = document.querySelectorAll(
+      "#munecos-container-infantil label, #munecos-container-infantil input"
+    );
+    elementosAnteriores.forEach((elemento) => {
+      elemento.remove();
+    });
 
     // Crear los <input> para los nombres de los muñecos
     for (let i = 1; i <= cantidadMunecos; i++) {
       const label = document.createElement("label");
-      label.textContent = `Nombre Muñeco ${i}:`;
+      label.textContent = `Nombre persona y Nombre Muñeco ${i}:`;
       const input = document.createElement("input");
       input.type = "text";
       input.id = `nombre-muneco-${i}`;
@@ -365,12 +431,62 @@ showGrandeBtn.addEventListener("click", function () {
       document.getElementById("munecos-container-infantil").appendChild(input);
     }
   });
+
+  // Agregar los <select> al contenedor de bailarinas
+  document.getElementById("show-grande-tipo").appendChild(tipoShowSelect);
+  document
+    .getElementById("bailarinas-container-infantil-select")
+    .appendChild(bailarinaSelect);
+
+  // Agregar los <select> al contenedor de muñecos
+  document
+    .getElementById("munecos-container-infantil-select")
+    .appendChild(munecoSelect);
+
+  // const bailarinaSelect = document.getElementById("bailarinaSelect");
+  const contenedorInfantil = document.getElementById(
+    "bailarinas-container-infantil"
+  );
+
+  bailarinaSelect.addEventListener("change", function () {
+    const cantidadBailarinas = parseInt(bailarinaSelect.value);
+    document.getElementById("bailarinas-container-infantil").innerHTML = ""; // Limpiar el contenedor antes de agregar los nuevos elementos
+
+    // Vaciar el contenedor, excepto el bailarinaSelect clonado
+    while (contenedorInfantil.firstChild) {
+      if (contenedorInfantil.firstChild !== bailarinaSelectClonado) {
+        contenedorInfantil.removeChild(contenedorInfantil.firstChild);
+      } else {
+        break;
+      }
+    }
+
+    // Crear los <input> para los nombres de las bailarinas
+    for (let i = 1; i <= cantidadBailarinas; i++) {
+      const label = document.createElement("label");
+      label.textContent = `Nombre Bailarina ${i}:`;
+      const input = document.createElement("input");
+      input.type = "text";
+      input.id = `nombre-bailarina-${i}`;
+      input.name = `nombre-bailarina-${i}`;
+
+      contenedorInfantil.appendChild(label);
+      contenedorInfantil.appendChild(input);
+    }
+
+    // Volver a agregar el bailarinaSelect clonado al contenedor
+    contenedorInfantil.appendChild(bailarinaSelectClonado);
+  });
+
+
 });
 
 const horallegadaBabyInput = document.getElementById("horallegadababy");
 const horasalidaBabyInput = document.getElementById("horasalidababy");
 const horallegadaShowBabyInput = document.getElementById("horallegadashowbaby");
-const horacomienzoShowBabyInput = document.getElementById("horacomienzoshowbaby");
+const horacomienzoShowBabyInput = document.getElementById(
+  "horacomienzoshowbaby"
+);
 
 horallegadaBabyInput.addEventListener("input", function () {
   const horallegada = horallegadaBabyInput.value;
@@ -394,8 +510,12 @@ function sumarMinutosBaby(hora, minutos) {
 
 const horallegadaInfantilInput = document.getElementById("horallegadainfantil");
 const horasalidaInfantilInput = document.getElementById("horasalidainfantil");
-const horallegadaShowInfantilInput = document.getElementById("horallegadashowinfantil");
-const horacomienzoShowInfantilInput = document.getElementById("horacomienzoshowinfantil");
+const horallegadaShowInfantilInput = document.getElementById(
+  "horallegadashowinfantil"
+);
+const horacomienzoShowInfantilInput = document.getElementById(
+  "horacomienzoshowinfantil"
+);
 
 horallegadaInfantilInput.addEventListener("input", function () {
   const horallegada = horallegadaInfantilInput.value;
