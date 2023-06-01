@@ -19,8 +19,14 @@ const animadoresContainerInfantil = document.getElementById(
 const animadoresContainerBaby = document.getElementById(
   "animadores-container-baby"
 );
-const generarShowInfantilBtn = document.getElementById(
-  "generar-show-infantil-btn"
+const generarShowInfantilBasicoBtn = document.getElementById(
+  "generar-show-infantil-btn-basico"
+);
+const generarShowInfantilBailarinaBtn = document.getElementById(
+  "generar-show-infantil-btn-bailarina"
+);
+const generarShowInfantilGrandeBtn = document.getElementById(
+  "generar-show-infantil-btn-grande"
 );
 const generarBabyShowerBtn = document.getElementById("generar-baby-shower-btn");
 const textoGeneradoTextarea = document.getElementById("texto-generado");
@@ -29,6 +35,9 @@ const textoGeneradoTextarea = document.getElementById("texto-generado");
 showInfantilBtn.addEventListener("click", function () {
   showInfantilSection.style.display = "block";
   babyShowerSection.style.display = "none";
+  document.getElementById("generar-show-infantil-btn-basico").style.display = "block";
+  document.getElementById("generar-show-infantil-btn-bailarina").style.display = "none";
+  document.getElementById("generar-show-infantil-btn-grande").style.display = "none";
 });
 
 babyShowerBtn.addEventListener("click", function () {
@@ -39,14 +48,23 @@ babyShowerBtn.addEventListener("click", function () {
 // Mostrar campos adicionales dependiendo del tipo de show infantil seleccionado
 showBasicoBtn.addEventListener("click", function () {
   animadoresContainerInfantil.innerHTML = "";
+  document.getElementById("generar-show-infantil-btn-basico").style.display = "block";
+  document.getElementById("generar-show-infantil-btn-bailarina").style.display = "none";
+  document.getElementById("generar-show-infantil-btn-grande").style.display = "none";
 });
 
 showBailarinaBtn.addEventListener("click", function () {
   animadoresContainerInfantil.innerHTML = "";
+  document.getElementById("generar-show-infantil-btn-basico").style.display = "none";
+  document.getElementById("generar-show-infantil-btn-bailarina").style.display = "block";
+  document.getElementById("generar-show-infantil-btn-grande").style.display = "none";
 });
 
 showGrandeBtn.addEventListener("click", function () {
   animadoresContainerInfantil.innerHTML = "";
+  document.getElementById("generar-show-infantil-btn-basico").style.display = "none";
+  document.getElementById("generar-show-infantil-btn-bailarina").style.display = "none";
+  document.getElementById("generar-show-infantil-btn-grande").style.display = "block";
 });
 
 // Agregar campos de nombre de animadores según la cantidad seleccionada en baby shower
@@ -89,11 +107,233 @@ cantidadAnimadoresInfantilSelect.addEventListener("change", function () {
 
 //!generar texto
 // Generar texto correspondiente al show infantil seleccionado
-generarShowInfantilBtn.addEventListener("click", function (event) {
+generarShowInfantilBasicoBtn.addEventListener("click", function (event) {
   event.preventDefault();
 
-  //!FALTA GENERAR EL BOTON PARA SHOW INFANTILES
+  var cantidadAnimadores = document.getElementById("cantidad-animadores-infantil").value;
+  var tipoShow = document.getElementById("tipo-show-infantil").value;
+  var direccion = document.getElementById("direccioninfantil").value;
+  var fecha = document.getElementById("fechainfantil").value;
+  var horaLlegadaSirene = document.getElementById("horallegadainfantil").value;
+  var horaSalidaSirene = document.getElementById("horasalidainfantil").value;
+  var horaLlegadaShow = document.getElementById("horallegadashowinfantil").value;
+  var horaComienzoShow = document.getElementById("horacomienzoshowinfantil").value;
+  var tipoAnimadora = document.getElementById("tipoinfantil").value;
+  var nombreDJ = document.getElementById("nombredj-infantil").value;
+  var nombreCumpleanero = document.getElementById("nombre-cumpleanero").value;
+  var edades = document.getElementById("edadesinfantil").value;
+  var tematica = document.getElementById("tematica").value;
+  var nombrePapa = document.getElementById("papainfantil").value;
+  var nombreMama = document.getElementById("mamainfantil").value;
+  var nombreContacto1 = document.getElementById("nombrecontactoinfantil1").value;
+  var celularContacto1 = document.getElementById("celularcontactoinfantil1").value;
+  var nombreContacto2 = document.getElementById("nombrecontactoinfantil2").value;
+  var celularContacto2 = document.getElementById("celularcontactoinfantil2").value;
+  var saldo = document.getElementById("saldoinfantil").value;
+  var movilidades = document.getElementById("movilidadesinfantil").value;
+  var comentario = document.getElementById("comentarioinfantil").value;
 
+  var animadoresContainer = document.getElementById("animadores-container-infantil");
+  var animadores = [];
+  for (var i = 0; i < cantidadAnimadores; i++) {
+    var animadorElement = animadoresContainer.querySelector("input[name='nombre-animador-infantil-" + (i + 1) + "']");
+    var animador = animadorElement.value;
+    animadores.push(animador);
+  }
+
+  var textoGenerado = "Show basico" + "\n";
+  textoGenerado += "Tipo de lugar: " + tipoShow + "\n";
+  textoGenerado += "Dirección: " + direccion + "\n\n";
+  textoGenerado += "Fecha(A/M/D): " + fecha + "\n";
+  textoGenerado += "Hora de llegada a Sirene: " + horaLlegadaSirene + "\n";
+  textoGenerado += "Hora de salida de Sirene: " + horaSalidaSirene + "\n";
+  textoGenerado += "Hora de llegada al show: " + horaLlegadaShow + "\n";
+  textoGenerado += "Hora de comienzo del show: " + horaComienzoShow + "\n\n";
+  textoGenerado += "Tipo de animadora/es: " + tipoAnimadora + "\n";
+  for (var j = 0; j < animadores.length; j++) {
+    textoGenerado += "Animador/a " + (j + 1) + ": " + animadores[j] + "\n";
+  }
+  textoGenerado += "Nombre del DJ: " + nombreDJ + "\n\n";
+  textoGenerado += "Nombre y edad del cumpleañer@: " + nombreCumpleanero + "\n";
+  textoGenerado += "Edades: " + edades + "\n";
+  textoGenerado += "Tematica: " + tematica + "\n";
+  textoGenerado += "Nombre del Papá: " + nombrePapa + "\n";
+  textoGenerado += "Nombre de la Mamá: " + nombreMama + "\n\n";
+  textoGenerado += "Nombre Contacto 1: " + nombreContacto1 + "\n";
+  textoGenerado += "Celular Contacto 1: " + celularContacto1 + "\n";
+  textoGenerado += "Nombre Contacto 2: " + nombreContacto2 + "\n";
+  textoGenerado += "Celular Contacto 2: " + celularContacto2 + "\n";
+  if (movilidades == 1) {
+    textoGenerado += `Saldo: ${saldo} + movilidades \n`;
+  } else {
+    textoGenerado += `Saldo: ${saldo}, movilidades ya pagadas\n`;
+  }
+  textoGenerado += "Comentario: " + comentario + "\n";
+
+  document.getElementById("texto-generado").value = textoGenerado;
+});
+
+// Generar texto correspondiente al show infantil seleccionado
+generarShowInfantilBailarinaBtn.addEventListener("click", function (event) {
+  event.preventDefault();
+
+  var cantidadAnimadores = document.getElementById("cantidad-animadores-infantil").value;
+  var tipoShow = document.getElementById("tipo-show-infantil").value;
+  var direccion = document.getElementById("direccioninfantil").value;
+  var fecha = document.getElementById("fechainfantil").value;
+  var horaLlegadaSirene = document.getElementById("horallegadainfantil").value;
+  var horaSalidaSirene = document.getElementById("horasalidainfantil").value;
+  var horaLlegadaShow = document.getElementById("horallegadashowinfantil").value;
+  var horaComienzoShow = document.getElementById("horacomienzoshowinfantil").value;
+  var tipoAnimadora = document.getElementById("tipoinfantil").value;
+  var nombreDJ = document.getElementById("nombredj-infantil").value;
+  var nombreCumpleanero = document.getElementById("nombre-cumpleanero").value;
+  var edades = document.getElementById("edadesinfantil").value;
+  var tematica = document.getElementById("tematica").value;
+  var nombrePapa = document.getElementById("papainfantil").value;
+  var nombreMama = document.getElementById("mamainfantil").value;
+  var nombreContacto1 = document.getElementById("nombrecontactoinfantil1").value;
+  var celularContacto1 = document.getElementById("celularcontactoinfantil1").value;
+  var nombreContacto2 = document.getElementById("nombrecontactoinfantil2").value;
+  var celularContacto2 = document.getElementById("celularcontactoinfantil2").value;
+  var saldo = document.getElementById("saldoinfantil").value;
+  var movilidades = document.getElementById("movilidadesinfantil").value;
+  var comentario = document.getElementById("comentarioinfantil").value;
+
+  var animadoresContainer = document.getElementById("animadores-container-infantil");
+  var animadores = [];
+  for (var i = 0; i < cantidadAnimadores; i++) {
+    var animadorElement = animadoresContainer.querySelector("input[name='nombre-animador-infantil-" + (i + 1) + "']");
+    var animador = animadorElement.value;
+    animadores.push(animador);
+  }
+
+  var bailarinasContainer = document.getElementById("bailarinas-container-infantil");
+  var bailarinasSelect = document.getElementById("bailarina-select");
+  var bailarinaOptions = bailarinasSelect.getElementsByTagName("option");
+  var cantidadBailarinas = bailarinaOptions[bailarinasSelect.selectedIndex].text.split(" ")[0];
+
+  var textoGenerado = "Show solo con bailarina/s" + "\n";
+  textoGenerado += "Tipo de lugar: " + tipoShow + "\n";
+  textoGenerado += "Dirección: " + direccion + "\n\n";
+  textoGenerado += "Fecha(A/M/D): " + fecha + "\n";
+  textoGenerado += "Hora de llegada a Sirene: " + horaLlegadaSirene + "\n";
+  textoGenerado += "Hora de salida de Sirene: " + horaSalidaSirene + "\n";
+  textoGenerado += "Hora de llegada al show: " + horaLlegadaShow + "\n";
+  textoGenerado += "Hora de comienzo del show: " + horaComienzoShow + "\n\n";
+  textoGenerado += "Tipo de animadora/es: " + tipoAnimadora + "\n";
+  for (var j = 0; j < animadores.length; j++) {
+    textoGenerado += "Animador/a " + (j + 1) + ": " + animadores[j] + "\n";
+  }
+  for (var i = 1; i <= cantidadBailarinas; i++) {
+    var nombreBailarina = document.getElementById("nombre-bailarina-" + i).value;
+    textoGenerado += "Bailarina " + i + ": " + nombreBailarina + "\n";
+  }
+  textoGenerado += "Nombre del DJ: " + nombreDJ + "\n\n";
+  textoGenerado += "Nombre y edad del cumpleañer@: " + nombreCumpleanero + "\n";
+  textoGenerado += "Edades: " + edades + "\n";
+  textoGenerado += "Tematica: " + tematica + "\n";
+  textoGenerado += "Nombre del Papá: " + nombrePapa + "\n";
+  textoGenerado += "Nombre de la Mamá: " + nombreMama + "\n\n";
+  textoGenerado += "Nombre Contacto 1: " + nombreContacto1 + "\n";
+  textoGenerado += "Celular Contacto 1: " + celularContacto1 + "\n";
+  textoGenerado += "Nombre Contacto 2: " + nombreContacto2 + "\n";
+  textoGenerado += "Celular Contacto 2: " + celularContacto2 + "\n";
+  if (movilidades == 1) {
+    textoGenerado += `Saldo: ${saldo} + movilidades \n`;
+  } else {
+    textoGenerado += `Saldo: ${saldo}, movilidades ya pagadas\n`;
+  }
+  textoGenerado += "Comentario: " + comentario + "\n";
+
+  
+
+
+
+  document.getElementById("texto-generado").value = textoGenerado;
+});
+// Generar texto correspondiente al show infantil seleccionado
+generarShowInfantilGrandeBtn.addEventListener("click", function (event) {
+  event.preventDefault();
+
+  var cantidadAnimadores = document.getElementById("cantidad-animadores-infantil").value;
+  var tipoShow = document.getElementById("tipo-show-infantil").value;
+  var direccion = document.getElementById("direccioninfantil").value;
+  var fecha = document.getElementById("fechainfantil").value;
+  var horaLlegadaSirene = document.getElementById("horallegadainfantil").value;
+  var horaSalidaSirene = document.getElementById("horasalidainfantil").value;
+  var horaLlegadaShow = document.getElementById("horallegadashowinfantil").value;
+  var horaComienzoShow = document.getElementById("horacomienzoshowinfantil").value;
+  var tipoAnimadora = document.getElementById("tipoinfantil").value;
+  var nombreDJ = document.getElementById("nombredj-infantil").value;
+  var nombreCumpleanero = document.getElementById("nombre-cumpleanero").value;
+  var edades = document.getElementById("edadesinfantil").value;
+  var tematica = document.getElementById("tematica").value;
+  var nombrePapa = document.getElementById("papainfantil").value;
+  var nombreMama = document.getElementById("mamainfantil").value;
+  var nombreContacto1 = document.getElementById("nombrecontactoinfantil1").value;
+  var celularContacto1 = document.getElementById("celularcontactoinfantil1").value;
+  var nombreContacto2 = document.getElementById("nombrecontactoinfantil2").value;
+  var celularContacto2 = document.getElementById("celularcontactoinfantil2").value;
+  var saldo = document.getElementById("saldoinfantil").value;
+  var movilidades = document.getElementById("movilidadesinfantil").value;
+  var comentario = document.getElementById("comentarioinfantil").value;
+
+  var animadoresContainer = document.getElementById("animadores-container-infantil");
+  var animadorInputs = animadoresContainer.getElementsByTagName("input");
+  var cantidadAnimadoresContainer = document.getElementById("cantidad-animadores-infantil");
+  var cantidadAnimadoresValue = cantidadAnimadoresContainer.options[cantidadAnimadoresContainer.selectedIndex].value;
+
+  var bailarinasContainer = document.getElementById("bailarinas-container-infantil");
+  var bailarinasSelect = document.getElementById("bailarina-select");
+  var bailarinaOptions = bailarinasSelect.getElementsByTagName("option");
+  var cantidadBailarinas = bailarinaOptions[bailarinasSelect.selectedIndex].text.split(" ")[0];
+
+  var munecosContainer = document.getElementById("munecos-container-infantil");
+  var munecoSelect = document.getElementById("muneco-select");
+  var munecoOptions = munecoSelect.getElementsByTagName("option");
+  var cantidadMunecos = munecoOptions[munecoSelect.selectedIndex].text.split(" ")[0];
+
+  var tipoShowGrande = document.getElementById("tipo-show-select").value;
+
+  var textoGenerado = "Tipo de show grande: " + tipoShowGrande + "\n";
+  textoGenerado += "Tipo de lugar: " + tipoShow + "\n";
+  textoGenerado += "Dirección: " + direccion + "\n\n";
+  textoGenerado += "Fecha(A/M/D): " + fecha + "\n";
+  textoGenerado += "Hora de llegada a Sirene: " + horaLlegadaSirene + "\n";
+  textoGenerado += "Hora de salida de Sirene: " + horaSalidaSirene + "\n";
+  textoGenerado += "Hora de llegada al show: " + horaLlegadaShow + "\n";
+  textoGenerado += "Hora de comienzo del show: " + horaComienzoShow + "\n\n";
+  textoGenerado += "Tipo de animadora/es: " + tipoAnimadora + "\n";
+  for (var i = 0; i < cantidadAnimadoresValue; i++) {
+    var nombreAnimador = animadorInputs[i].value;
+    textoGenerado += "Nombre Animador " + (i + 1) + ": " + nombreAnimador + "\n";
+  }
+  for (var i = 1; i <= cantidadBailarinas; i++) {
+    var nombreBailarina = document.getElementById("nombre-bailarina-" + i).value;
+    textoGenerado += "Nombre Bailarina " + i + ": " + nombreBailarina + "\n";
+  }
+  for (var i = 1; i <= cantidadMunecos; i++) {
+    var nombreMuneco = document.getElementById("nombre-muneco-" + i).value;
+    textoGenerado += "Nombre Muñeco " + i + ": " + nombreMuneco + "\n";
+  }
+  textoGenerado += "Nombre del DJ: " + nombreDJ + "\n\n";
+  textoGenerado += "Nombre y edad del cumpleañer@: " + nombreCumpleanero + "\n";
+  textoGenerado += "Edades: " + edades + "\n";
+  textoGenerado += "Tematica: " + tematica + "\n";
+  textoGenerado += "Nombre del Papá: " + nombrePapa + "\n";
+  textoGenerado += "Nombre de la Mamá: " + nombreMama + "\n\n";
+  textoGenerado += "Nombre Contacto 1: " + nombreContacto1 + "\n";
+  textoGenerado += "Celular Contacto 1: " + celularContacto1 + "\n";
+  textoGenerado += "Nombre Contacto 2: " + nombreContacto2 + "\n";
+  textoGenerado += "Celular Contacto 2: " + celularContacto2 + "\n";
+  if (movilidades == 1) {
+    textoGenerado += `Saldo: ${saldo} + movilidades \n`;
+  } else {
+    textoGenerado += `Saldo: ${saldo}, movilidades ya pagadas\n`;
+  }
+  textoGenerado += "Comentario: " + comentario + "\n";
+  document.getElementById("texto-generado").value = textoGenerado;
 });
 
 // Generar texto correspondiente al baby shower seleccionado
@@ -119,6 +359,7 @@ generarBabyShowerBtn.addEventListener("click", function (event) {
   const nombreDjBaby = document.getElementById("nombredj-baby").value;
   const papaBaby = document.getElementById("papababy").value;
   const mamaBaby = document.getElementById("mamababy").value;
+  const bebeBaby = document.getElementById("bebebaby").value;
   const nombreContacto1Baby = document.getElementById(
     "nombrecontactobaby1"
   ).value;
@@ -148,35 +389,30 @@ generarBabyShowerBtn.addEventListener("click", function (event) {
   }
 
   textoGenerado += `Tipo de lugar: ${tipoShowBaby}\n`;
-  textoGenerado += `Direccion: ${direccionBaby}\n`;
+  textoGenerado += `Direccion: ${direccionBaby}\n\n`;
   textoGenerado += `Fecha(A/M/D): ${fechaBaby}\n`;
   textoGenerado += `Hora de llegada a Sirene: ${horaLlegadaBaby}\n`;
   textoGenerado += `Hora de salida de Sirene: ${horaSalidaBaby}\n`;
   textoGenerado += `Hora de llegada al show: ${horaLlegadaShowBaby}\n`;
-  textoGenerado += `Hora de comienzo del show: ${horaComienzoShowBaby}\n`;
+  textoGenerado += `Hora de comienzo del show: ${horaComienzoShowBaby}\n\n`;
   textoGenerado += `Tipo de animadora/es: ${tipoAnimadoraBaby}\n`;
 
   // Insertar los nombres de los animadores antes de "Nombre DJ"
   textoGenerado += nombresAnimadores;
 
-  textoGenerado += `Nombre DJ: ${nombreDjBaby}\n`;
+  textoGenerado += `Nombre del DJ: ${nombreDjBaby}\n\n`;
   textoGenerado += `Papá: ${papaBaby}\n`;
   textoGenerado += `Mamá: ${mamaBaby}\n`;
-  textoGenerado +=
-    `Nombre y Celular Contacto (1): ${nombreContacto1Baby}` +
-    ` || ${celularContacto1Baby}\n`;
-  // textoGenerado += `Celular Contacto 1: ${celularContacto1Baby}\n`;
-  textoGenerado +=
-    `Nombre y Celular Contacto (2): ${nombreContacto2Baby}` +
-    ` || ${celularContacto2Baby}\n`;
-  // textoGenerado += `Celular Contacto 2: ${celularContacto2Baby}\n`;
+  textoGenerado += `Nombre del futuro bebe: ${bebeBaby}\n\n`;
+  textoGenerado += "Nombre Contacto 1: " + nombreContacto1Baby + "\n";
+  textoGenerado += "Celular Contacto 1: " + celularContacto1Baby + "\n";
+  textoGenerado += "Nombre Contacto 2: " + nombreContacto2Baby + "\n";
+  textoGenerado += "Celular Contacto 2: " + celularContacto2Baby + "\n";
   if (movilidadesBaby == 1) {
     textoGenerado += `Saldo: ${saldoBaby} + movilidades \n`;
   } else {
     textoGenerado += `Saldo: ${saldoBaby}, movilidades ya pagadas\n`;
   }
-  // textoGenerado += `Saldo: ${saldoBaby}\n`;
-  // textoGenerado += `¿Movilidades?: ${movilidadesBaby}\n`;
   textoGenerado += `Comentario: ${comentarioBaby}\n`;
 
   textoGeneradoTextarea.value = textoGenerado;
