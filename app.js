@@ -719,8 +719,7 @@ showGrandeBtn.addEventListener("click", function () {
       contenedorInfantil.appendChild(input);
     }
 
-    // Volver a agregar el bailarinaSelect clonado al contenedor
-    contenedorInfantil.appendChild(bailarinaSelectClonado);
+
   });
 
 
