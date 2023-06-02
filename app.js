@@ -423,16 +423,24 @@ textoGeneradoTextarea.addEventListener("click", function () {
   navigator.clipboard
     .writeText(textoGeneradoTextarea.value)
     .then(function () {
-      // Mostrar mensaje de copiado
-      const mensajeCopiado = document.createElement("p");
-      mensajeCopiado.textContent = "Copiado al portapapeles";
-      mensajeCopiado.style.color = "green";
-      document.body.appendChild(mensajeCopiado);
+      // Mostrar ventana emergente de copiado exitoso
+      const popup = document.createElement("div");
+      popup.textContent = "Texto Copiado";
+      popup.style.position = "fixed";
+      popup.style.top = "50%";
+      popup.style.left = "50%";
+      popup.style.transform = "translate(-50%, -50%)";
+      popup.style.backgroundColor = "rgba(0, 255, 0, 0.8)";
+      popup.style.padding = "20px";
+      popup.style.borderRadius = "5px";
+      popup.style.color = "white";
+      popup.style.fontFamily = "Arial, sans-serif";
+      document.body.appendChild(popup);
 
-      // Eliminar mensaje después de 5 segundos
+      // Eliminar ventana emergente después de 3 segundos
       setTimeout(function () {
-        mensajeCopiado.remove();
-      }, 5000);
+        popup.remove();
+      }, 2000);
     })
     .catch(function (error) {
       console.error("Error al copiar al portapapeles:", error);
@@ -543,6 +551,7 @@ showGrandeBtn.addEventListener("click", function () {
   // Crear el elemento <select> para el tipo de show
   const tipoShowSelect = document.createElement("select");
   tipoShowSelect.id = "tipo-show-select";
+  
 
   // Agregar opciones al <select> para el tipo de show
   const options = [
